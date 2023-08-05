@@ -32,6 +32,8 @@ dependencies {
     compileOnly 'io.swagger:swagger-annotations:1.6.2'
     compileOnly 'jakarta.validation:jakarta.validation-api:2.0.2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    testImplementation 'org.mock-server:mockserver-netty:5.14.0'
 }
 
 test {
