@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+
+dependencies {
+
+    implementation "org.openapitools:openapi-generator:6.6.0"
+
+}
