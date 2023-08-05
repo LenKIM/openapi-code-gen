@@ -42,7 +42,7 @@ test {
     useJUnitPlatform()
 }
 
-def swaggerRoot = "$projectDir/src/main/swagger-config".toString()
+def swaggerRoot = "$projectDir/src/main/codegen-config".toString()
 def swaggerAPIOutput = "$projectDir/src/main".toString()
 
 openApiValidate {
@@ -56,7 +56,7 @@ openApiGenerate {
     configFile= "$swaggerRoot/config.json".toString()
     outputDir= "$swaggerAPIOutput".toString()
     configOptions = [
-            "sourceFolder" : "swagger-generated"
+            "sourceFolder" : "openapi-generated"
     ]
 }
 
