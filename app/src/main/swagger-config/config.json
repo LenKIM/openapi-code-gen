@@ -1,0 +1,25 @@
+{
+
+  "library": "spring-boot",
+  "interfaceOnly" : true,
+  "basePackage" : "com.likelen.openapi-demo",
+  "configPackage" : "example.api.config",
+  "modelPackage": "com.likelen.openapi-demo.models",
+  "apiPackage": "com.likelen.openapi-demo.apis",
+  "invokerPackage": "com.likelen.openapi-demo.apis",
+  "useTags" : true,
+  "skipDefaultInterface" : true,
+  "dateLibrary": "java8",
+  "useBeanValidation" : true,
+  "serializableModel" : true,
+  "implicitHeaders" : false,
+  "swaggerDocketConfig": false,
+  "hideGenerationTimestamp": true,
+
+  "useSpringfox": false,
+  "reactive": false,
+  "openApiNullable" : false
+
+
+
+}

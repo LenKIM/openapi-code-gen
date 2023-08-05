@@ -1,0 +1,93 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+buildscript {
+
+    dependencies {
+        classpath project(':api-codegen')
+    }
+}
+
+plugins {
+    id "org.openapi.generator" version "6.6.0"
+}
+
+plugins {
+    id 'java-library'
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'idea'
+
+}
+
+group = 'com.likelen.openapi-demo'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    compileOnly 'io.swagger:swagger-annotations:1.6.2'
+    compileOnly 'jakarta.validation:jakarta.validation-api:2.0.2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+def swaggerRoot = "$projectDir/src/main/swagger-config".toString()
+def swaggerAPIOutput = "$projectDir/src/main".toString()
+
+openApiValidate {
+    inputSpec="$swaggerRoot/api.yml".toString()
+    recommend=true
+}
+
+openApiGenerate {
+    inputSpec="$swaggerRoot/api.yml".toString()
+    generatorName = "custom-codegen"
+    configFile= "$swaggerRoot/config.json".toString()
+    outputDir= "$swaggerAPIOutput".toString()
+    configOptions = [
+            "sourceFolder" : "swagger-generated"
+    ]
+}
+
+tasks.named("openApiGenerate") {
+
+    it.doLast {
+        delete "$projectDir/src/main/pom.xml"
+        delete "$projectDir/src/main/README.md"
+        delete "$projectDir/src/main/.openapi-generator-ignore"
+        delete "$projectDir/src/main/.openapi-generator"
+        delete "$projectDir/src/main/resources" + "/" + "swagger"
+
+    }
+}
+
+
+task openApiYmlGenerate(type: GenerateTask){
+    inputSpec="$swaggerRoot/api.yml".toString()
+    generatorName = "openapi-yaml".toString()
+    outputDir= "$swaggerAPIOutput/resources/swagger/".toString()
+    configOptions = [
+            outputFile: "openapi.yml"
+    ]
+
+    def outputDir = "$projectDir/src/main/resources"
+    it.doLast {
+        delete outputDir + "/" + "swagger"
+    }
+}
+
+tasks.openApiGenerate.dependsOn  tasks.openApiValidate
+tasks.compileJava.dependsOn tasks.openApiGenerate, tasks.openApiYmlGenerate
+sourceSets.main.java.srcDir "${openApiGenerate.outputDir.get()}/${openApiGenerate.configOptions['sourceFolder'].get()}"
+sourceSets.main.resources.srcDir "${openApiGenerate.outputDir.get()}/src/main/resources"

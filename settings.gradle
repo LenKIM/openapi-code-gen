@@ -1,0 +1,6 @@
+rootProject.name = 'openapi-codegen-demo'
+
+include("api-codegen")
+include("app")
+
+

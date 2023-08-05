@@ -1,0 +1,16 @@
+infcon:
+  name: 인프콘
+  year: 2023
+  description: 인프런이 만드는 IT인의 축제
+
+speaker:
+  title: 오늘도 여러분의 API는 안녕하신가요?
+  name: len
+  description: 작은 발걸음의 연속으로 큰 변화를 만들어내는 것을 좋아합니다.
+  where: 코엑스 105호
+  time: 11:40 - 12:20 (40분)
+  target:
+    - 주니어
+    - 아키텍처
+
+
