@@ -48,12 +48,12 @@ def swaggerRoot = "$projectDir/src/main/codegen-config".toString()
 def swaggerAPIOutput = "$projectDir/src/main".toString()
 
 openApiValidate {
-    inputSpec="$swaggerRoot/api.yml".toString()
+    inputSpec="$swaggerRoot/api-order-contract.yaml".toString()
     recommend=true
 }
 
 openApiGenerate {
-    inputSpec="$swaggerRoot/api.yml".toString()
+    inputSpec="$swaggerRoot/api-order-contract.yaml".toString()
     generatorName = "custom-codegen"
     configFile= "$swaggerRoot/config.json".toString()
     outputDir= "$swaggerAPIOutput".toString()
@@ -76,7 +76,7 @@ tasks.named("openApiGenerate") {
 
 
 task openApiYmlGenerate(type: GenerateTask){
-    inputSpec="$swaggerRoot/api.yml".toString()
+    inputSpec="$swaggerRoot/api-order-contract.yaml".toString()
     generatorName = "openapi-yaml".toString()
     outputDir= "$swaggerAPIOutput/resources/swagger/".toString()
     configOptions = [

@@ -46,12 +46,12 @@ openapi-generated 폴더가 생성되었음을 확인할 수 있습니다.
 
 ` ./gradlew :app:bootRun` 
 
-
+###### 
 
 ## API FIRST DESIGN 개발 프로세스
 
 1. API 명세를 기반으로 API 계약서를 설계 한다.
-   - app/src/main/codegen-config/api.yml 에서 API 설계한 내용을 찾을 수 있습니다.
+   - app/src/main/codegen-config/api-order-contract.yml 에서 API 설계한 내용을 찾을 수 있습니다.
 2. 설계된 API 계약서를 기반으로 이해관계자와 토론과 공유를 한다.
 3. Open API 도구를 활용하여(여기서는 Code Generator) 코드를 구현한다.
 4. API 문서를 관심있어 하는 이해관계자에게 전달한다.
