@@ -40,11 +40,17 @@ openapi-generated 폴더가 생성되었음을 확인할 수 있습니다.
 
 `./gradlew :api-mockserver:run`
 
-
+http://localhost:8085/apis/orders 에 접속하여 Mock Server 가 동작함을 확인할 수 있습니다.
 
 ## How to run App
 
 ` ./gradlew :app:bootRun` 
+
+http://localhost:8080/apis/orders 에 접속하여 App 이 동작함을 확인할 수 있습니다.
+
+> 주의!
+>
+> api-codegen build 를 먼저 실행 후, app 모듈의 코드를 실행해야만 합니다.
 
 ###### 
 
