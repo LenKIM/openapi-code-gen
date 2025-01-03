@@ -1,7 +1,7 @@
 package com.likelen.openapi.controller;
 
-import com.likelen.openapi_demo.apis.OrderApi;
-import com.likelen.openapi_demo.models.SubscriptionOrdersModel;
+import com.likelen.openapi.apis.OrderApi;
+import com.likelen.openapi.models.SubscriptionOrdersModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
